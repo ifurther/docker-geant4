@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v1
     - name: Build the Docker image geant4-base
       uses: buildtool/build-action@v1
       with:
