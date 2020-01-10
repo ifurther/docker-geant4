@@ -13,6 +13,6 @@ jobs:
       uses: buildtool/build-action@v1
       with:
         dockerfile: Dockerfile
-        docker-build-args: --file Dockerfile --tag geant4:base-$(date +%s) --target base 
+        #docker-build-args: --file Dockerfile --tag geant4:base-$(date +%s) --target base 
     - name: Build the Docker image geant4-lib 
       run: docker build . --file Dockerfile --tag geant4:lib-$(date +%s) --target geant4-base
