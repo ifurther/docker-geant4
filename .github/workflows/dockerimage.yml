@@ -4,7 +4,6 @@ on: [push]
   
     
 jobs:
-  image: '../../../Dockerfile'
 
   build:
 
