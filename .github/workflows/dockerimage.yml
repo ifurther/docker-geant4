@@ -1,16 +1,17 @@
 name: Docker Image CI
 
 on: [push]
-
+  
+    
 jobs:
+  image: '../../../Dockerfile'
 
   build:
 
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the Docker image geant4-base
-      run: docker build . --file Dockerfile --tag geant4:base-$(date +%s) --target base
+    - name: Checkout
+      uses: actions/checkout@v1
+    - run: docker build . --file Dockerfile --tag geant4:base-$(date +%s) --target base 
     - name: Build the Docker image geant4-lib 
       run: docker build . --file Dockerfile --tag geant4:lib-$(date +%s) --target geant4-base
