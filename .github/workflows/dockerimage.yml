@@ -4,19 +4,14 @@ on: [push]
   
     
 jobs:
+  image: '../../../Dockerfile'
 
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        compiler: [gcc, clang]
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-      env:
-        CC: ${{ matrix.compiler }}
-        image: '../../../Dockerfile'
     - run: docker build . --file Dockerfile --tag geant4:base-$(date +%s) --target base 
     - name: Build the Docker image geant4-lib 
       run: docker build . --file Dockerfile --tag geant4:lib-$(date +%s) --target geant4-base
