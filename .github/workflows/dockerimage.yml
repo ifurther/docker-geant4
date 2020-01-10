@@ -11,4 +11,5 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag geant4:$(date +%s)
+      run: docker build . --file Dockerfile --tag geant4:base-$(date +%s) --target base
+      run: docker build . --file Dockerfile --tag geant4:lib-$(date +%s) --target bageant4-base
