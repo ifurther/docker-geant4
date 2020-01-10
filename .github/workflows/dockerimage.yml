@@ -1,17 +1,16 @@
 name: Docker Image CI
 
 on: [push]
-
-strategy:
-  matrix:
-    compiler: [gcc, clang]
+  
     
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        compiler: [gcc, clang]
     steps:
     - name: Checkout
       uses: actions/checkout@v1
