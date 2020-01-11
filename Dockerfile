@@ -1,10 +1,9 @@
-
-FROM ubuntu:${IMAGE_base} as base
 ARG IMAGE_base=bionic
 ARG build_G4Version="10.05.p01"
 ARG build_shortG4version="10.5.1"	
 ENV G4Version=$build_G4Version
 ENV shortG4version=$build_shortG4version
+FROM ubuntu:${IMAGE_base} as base
 
 LABEL maintainer="Further Lin <55025025+ifurther@users.noreply.github.com>"
 
