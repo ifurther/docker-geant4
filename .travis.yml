@@ -2,5 +2,10 @@ language: generic
 services:
   - docker
 
+addons:
+  apt:
+    packages:
+      - docker-ce
+
 before_install:
   - docker build -f Dockerfile --tag geant4:base-$(date +%s) .
