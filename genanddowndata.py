@@ -58,7 +58,7 @@ with open ('downdata.sh', 'w') as rsh:
         echo "starting download"
         ''')
     rsh.write('''\
-        geant4_data_path=$(pwd)/data
+        geant4_data_path=/app/data
         if [ -e $geant4_data_path ];then
            mkdir -p $geant4_data_path
         fi
@@ -71,7 +71,9 @@ with open ('downdata.sh', 'w') as rsh:
     rsh.write('''\
         cd $geant4_data_path
         for data in geant4_data;do
-           wget $data_url$ii;
+           if [ ! -e $ii ];then
+              wget $data_url$ii;
+           fi
            tar xf $ii;
            rm -rf $ii;
         done

@@ -44,10 +44,11 @@ RUN bash -c 'if [ -e geant4.${shortG4version}-install ] ; then mkdir ${G4WKDIR}/
 
 RUN mkdir ${G4WKDIR}/data && cp ${G4WKDIR}/geant4.${G4Version}/cmake/Modules/Geant4DatasetDefinitions.cmake ${G4WKDIR}/data 
 COPY genanddowndata.py ${G4WKDIR}/data
-RUN  cd ${G4WKDIR}/data && python3 genanddowndata.py Geant4DatasetDefinitions.cmake
+RUN  cd ${G4WKDIR}/data && python3 genanddowndata.py Geant4DatasetDefinitions.cmake && chmod +x downdata.sh && ./downdata.sh
 
 RUN cd ${G4WKDIR}/geant4.${shortG4version}-build && \
 cmake -DCMAKE_INSTALL_PREFIX=${G4DIR}/geant4.${shortG4version}-install \
+-DGEANT4_INSTALL_DATADIR=/app/data \
 -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_INSTALL_DATA=ON \
 -DGEANT4_USE_QT=ON -DGEANT4_USESYSTEM_ZLIB=ON -DGEANT4_USESYSTEM_EXPAT=ON ${G4WKDIR}/geant4.${G4Version} &&\
 make -j`grep -c ^processor /proc/cpuinfo` &&\
