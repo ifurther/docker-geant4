@@ -16,7 +16,7 @@ libglu1-mesa-dev libxt-dev xorg-dev build-essential \
 libxerces-c-dev libxmu-dev expat libfreetype6-dev  \
 cmake-curses-gui wget libxext-dev qt5-default \
 git dpkg-dev libfftw3-dev libftgl-dev python-dev \
-libexpat-dev zlib1g zlib1g-dev python-requests
+libexpat-dev zlib1g zlib1g-dev python3-requests
 
 RUN apt-get clean all
 
@@ -44,7 +44,7 @@ RUN bash -c 'if [ -e geant4.${shortG4version}-install ] ; then mkdir ${G4WKDIR}/
 
 RUN mkdir ${G4WKDIR}/data && cp ${G4WKDIR}/geant4.${G4Version}/cmake/Modules/Geant4DatasetDefinitions.cmake ${G4WKDIR}/data 
 COPY genanddowndata.py ${G4WKDIR}/data
-RUN  cd ${G4WKDIR}/data && python genanddowndata.py Geant4DatasetDefinitions.cmake
+RUN  cd ${G4WKDIR}/data && python3 genanddowndata.py Geant4DatasetDefinitions.cmake
 
 RUN cd ${G4WKDIR}/geant4.${shortG4version}-build && \
 cmake -DCMAKE_INSTALL_PREFIX=${G4DIR}/geant4.${shortG4version}-install \
