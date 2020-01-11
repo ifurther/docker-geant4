@@ -87,3 +87,5 @@ COPY --from=geant4-build /$G4WKDIR/geant4.${shortG4version}-install $G4WKDIR/gea
 COPY --from=geant4-build ${G4WKDIR}/geant4.${G4Version} /src
 
 COPY --from=geant4-build ${G4WKDIR}/data/downdata.sh /data
+
+ENTRYPOINT ["/entrypoint.sh"]
