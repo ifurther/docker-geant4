@@ -63,7 +63,7 @@ FROM base as geant4-base
 SHELL ["/bin/bash", "-c"] 
 RUN if [ ! -e /app ] ; then mkdir /app; fi
 RUN if [ ! -e /src ];then mkdir /src;fi
-RUN if [ ! -e /app/data ];then mkdir /src;fi
+RUN if [ ! -e /app/data ];then mkdir /app/data;fi
 ENV G4WKDIR=/app
 
 WORKDIR /app
