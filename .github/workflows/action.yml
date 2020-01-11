@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Geant4 Docker'
+description: 'Geant4 Docker'
 runs:
   using: 'docker'
   image: 'Dockerfile'
