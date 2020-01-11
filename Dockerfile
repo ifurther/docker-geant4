@@ -75,10 +75,10 @@ set -e \n\
 source $G4DIR/bin/geant4.sh\n\
 source $G4DIR/share/Geant4-$shortG4version/geant4make/geant4make.sh \n\
 \n\
-exec "$@" \n
-if <condition> ; then \n
-  echo "Game over!" \n
-  exit 1 \n
+exec "$@" \n\
+if <condition> ; then \n\
+  echo "Game over!" \n\
+  exit 1 \n\
 fi">$G4WKDIR/entry-point.sh
 
 RUN chmod +x $G4WKDIR/entry-point.sh
