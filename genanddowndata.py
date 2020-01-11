@@ -64,7 +64,7 @@ with open ('downdata.sh', 'w') as rsh:
         fi
         ''')
     rsh.write('data_url="http://geant4-data.web.cern.ch/geant4-data/datasets/"\n')
-    rsh.write('geant4_data=([)')
+    rsh.write('geant4_data=(')
     for ii in [str(v) for k, v in Geant4Dataset.items()]:
         rsh.write("'{}' ".format(ii))
     rsh.write(')\n')
