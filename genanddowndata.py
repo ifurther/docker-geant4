@@ -64,13 +64,13 @@ with open ('downdata.sh', 'w') as rsh:
         fi
         ''')
     rsh.write('data_url="http://geant4-data.web.cern.ch/geant4-data/datasets/"\n')
-    rsh.write('geant4_data=[')
+    rsh.write('geant4_data=([)')
     for ii in [str(v) for k, v in Geant4Dataset.items()]:
-        rsh.write("'{}'  ".format(ii))
-    rsh.write(']\n')
+        rsh.write("'{}' ".format(ii))
+    rsh.write(')\n')
     rsh.write('''\
         cd $geant4_data_path
-        for data in geant4_data;do
+        for data in ${geant4_data[*]};do
            if [ ! -e $ii ];then
               wget $data_url$ii;
            fi
