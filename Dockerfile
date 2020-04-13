@@ -1,7 +1,7 @@
 ARG IMAGE_base=bionic
 FROM ubuntu:${IMAGE_base} as base
-ARG build_G4Version="10.06"
-ARG build_shortG4version="10.6"	
+ARG build_G4Version="10.06.p01"
+ARG build_shortG4version="10.6.1"	
 ENV G4Version=$build_G4Version
 ENV shortG4version=$build_shortG4version
 LABEL maintainer="Further Lin <55025025+ifurther@users.noreply.github.com>"
